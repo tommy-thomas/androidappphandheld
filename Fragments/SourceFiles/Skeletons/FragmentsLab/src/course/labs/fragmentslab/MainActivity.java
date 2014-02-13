@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements
 			mFriendsFragment = new FriendsFragment();
 
 			//TODO 1 - add the FriendsFragment to the fragment_container
-			FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager = getFragmentManager();
 			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 			fragmentTransaction.add(R.id.fragment_container, mFriendsFragment);
 			fragmentTransaction.commit();
@@ -43,6 +43,38 @@ public class MainActivity extends Activity implements
 		}
 
 	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		Log.i(TAG, "onSaveInstanceState");
+		if( mFriendsFragment != null && mFriendsFragment instanceof FriendsFragment ){
+			fragmentManager.putFragment(outState, "mFriend",  mFriendsFragment);
+		}
+		if( mFeedFragment != null && mFeedFragment instanceof FeedFragment ){
+			fragmentManager.putFragment(outState, "mFeed",   mFeedFragment);
+		}
+		
+	}
+	
+	private void restoreFragments(Bundle inState){
+		
+		if( inState != null ){
+			if(  fragmentManager.findFragmentByTag("mFriend") != null ){
+				mFriendsFragment = (FriendsFragment)fragmentManager.findFragmentByTag("mFriend");
+			}
+			if(  fragmentManager.findFragmentByTag("mFeed") != null ){
+				mFeedFragment = (FeedFragment)fragmentManager.findFragmentByTag("mFeed");
+			}
+		}
+		
+	}
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle inState) {
+		Log.i(TAG, "onRestoreInstanceState");
+		restoreFragments(inState);
+		}
 
 	// If there is no fragment_container ID, then the application is in
 	// two-pane mode
