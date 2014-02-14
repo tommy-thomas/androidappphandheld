@@ -20,19 +20,19 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity);
 
-		// If the layout is single-pane, create the FriendsFragment 
+		// If the layout is single-pane, create the FriendsFragment
 		// and add it to the Activity
 
 		if (!isInTwoPaneMode()) {
-			
+
 			mFriendsFragment = new FriendsFragment();
 
-			//TODO 1 - add the FriendsFragment to the fragment_container
+			// TODO 1 - add the FriendsFragment to the fragment_container
 			fragmentManager = getFragmentManager();
-			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+			FragmentTransaction fragmentTransaction = fragmentManager
+					.beginTransaction();
 			fragmentTransaction.add(R.id.fragment_container, mFriendsFragment);
 			fragmentTransaction.commit();
-			
 
 		} else {
 
@@ -43,38 +43,6 @@ public class MainActivity extends Activity implements
 		}
 
 	}
-	
-	@Override
-	protected void onSaveInstanceState(Bundle outState){
-		super.onSaveInstanceState(outState);
-		Log.i(TAG, "onSaveInstanceState");
-		if( mFriendsFragment != null && mFriendsFragment instanceof FriendsFragment ){
-			fragmentManager.putFragment(outState, "mFriend",  mFriendsFragment);
-		}
-		if( mFeedFragment != null && mFeedFragment instanceof FeedFragment ){
-			fragmentManager.putFragment(outState, "mFeed",   mFeedFragment);
-		}
-		
-	}
-	
-	private void restoreFragments(Bundle inState){
-		
-		if( inState != null ){
-			if(  fragmentManager.findFragmentByTag("mFriend") != null ){
-				mFriendsFragment = (FriendsFragment)fragmentManager.findFragmentByTag("mFriend");
-			}
-			if(  fragmentManager.findFragmentByTag("mFeed") != null ){
-				mFeedFragment = (FeedFragment)fragmentManager.findFragmentByTag("mFeed");
-			}
-		}
-		
-	}
-	
-	@Override
-	protected void onRestoreInstanceState(Bundle inState) {
-		Log.i(TAG, "onRestoreInstanceState");
-		restoreFragments(inState);
-		}
 
 	// If there is no fragment_container ID, then the application is in
 	// two-pane mode
@@ -82,7 +50,7 @@ public class MainActivity extends Activity implements
 	private boolean isInTwoPaneMode() {
 
 		return findViewById(R.id.fragment_container) == null;
-	
+
 	}
 
 	// Display selected Twitter feed
@@ -97,16 +65,21 @@ public class MainActivity extends Activity implements
 			mFeedFragment = new FeedFragment();
 
 		// If in single-pane mode, replace single visible Fragment
-
 		if (!isInTwoPaneMode()) {
 
-			//TODO 2 - replace the fragment_container with the FeedFragment
+			// TODO 2 - replace the fragment_container with the FeedFragment
+			// I also added save state logic.
 			FragmentManager fragmentManager = getFragmentManager();
-			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-			fragmentTransaction.replace(R.id.fragment_container, mFeedFragment);
-			fragmentTransaction.addToBackStack(null);
-			fragmentTransaction.commit();
+			FragmentTransaction fragmentTransaction = fragmentManager
+					.beginTransaction();
+			if( mFeedFragment.isAdded() ){
+				fragmentTransaction.show(mFriendsFragment);
+			} else {
+				fragmentTransaction.replace(R.id.fragment_container, mFeedFragment);
+				fragmentTransaction.addToBackStack(null);
+			}
 			
+			fragmentTransaction.commit();
 
 			// execute transaction now
 			getFragmentManager().executePendingTransactions();
