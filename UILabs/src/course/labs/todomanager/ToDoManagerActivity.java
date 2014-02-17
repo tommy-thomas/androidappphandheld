@@ -18,9 +18,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import course.labs.todomanager.ToDoItem.Priority;
 import course.labs.todomanager.ToDoItem.Status;
@@ -50,10 +52,13 @@ public class ToDoManagerActivity extends ListActivity {
 		getListView().setFooterDividersEnabled(true);
 
 		//TODO - Inflate footerView for footer_view.xml file
-
+		getLayoutInflater().inflate(R.id.footerView, null);
+		
 		TextView footerView = null;
 
 		//TODO - Add footerView to ListView
+		getListView().addFooterView(footerView);
+		
 
 		footerView.setOnClickListener(new OnClickListener() {
 			@Override
@@ -62,11 +67,14 @@ public class ToDoManagerActivity extends ListActivity {
 				log("Entered footerView.OnClickListener.onClick()");
 
 				//TODO - Attach Listener to FooterView. Implement onClick().
+				Intent addToDoIntent = new Intent(ToDoManagerActivity.this , AddToDoActivity.class );
+				startActivity(addToDoIntent);
 
 			}
 		});
 
 		//TODO - Attach the adapter to this ListActivity's ListView
+		getListView().setAdapter(mAdapter);
 
 	}
 
