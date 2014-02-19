@@ -4,8 +4,10 @@
 <fullyQualifiedTypeName name="course.labs.todomanager.ToDoItem.Status"/>
 <fullyQualifiedTypeName name="course.labs.todomanager.ToDoItem"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
-<fullyQualifiedTypeName name="course.labs.todomanager.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.CheckBox"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.R.layout"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.R.string"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.R.id"/>
 </qualifiedTypeNameHistroy>
