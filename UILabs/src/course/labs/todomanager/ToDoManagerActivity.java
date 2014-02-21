@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.TooManyListenersException;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -23,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import course.labs.todomanager.ToDoItem.Priority;
 import course.labs.todomanager.ToDoItem.Status;
@@ -52,9 +54,9 @@ public class ToDoManagerActivity extends ListActivity {
 		getListView().setFooterDividersEnabled(true);
 
 		//TODO - Inflate footerView for footer_view.xml file
-		getLayoutInflater().inflate(R.id.footerView, null);
+		//getLayoutInflater().inflate(R.layout.footer_view, null);
 		
-		TextView footerView = null;
+		TextView footerView = (TextView)getLayoutInflater().inflate(R.layout.footer_view, null);
 
 		//TODO - Add footerView to ListView
 		getListView().addFooterView(footerView);
@@ -87,6 +89,11 @@ public class ToDoManagerActivity extends ListActivity {
 		// If user submitted a new ToDoItem
 		// Create a new ToDoItem from the data Intent
 		// and then add it to the adapter
+		if( requestCode == ADD_TODO_ITEM_REQUEST){
+			if( resultCode == RESULT_OK ){
+				mAdapter.add( new ToDoItem(data) );
+			}
+		}
 
 	}
 

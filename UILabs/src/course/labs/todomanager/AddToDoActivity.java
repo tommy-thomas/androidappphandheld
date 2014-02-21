@@ -104,7 +104,6 @@ public class AddToDoActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				log("Entered resetButton.OnClickListener.onClick()");
-
 				//TODO - Reset data fields to default values
 				
 			}
@@ -128,7 +127,7 @@ public class AddToDoActivity extends Activity {
 				Status status = getStatus();
 
 				//TODO -  Title
-				String titleString = "";
+				String titleString = mTitleText.toString();
 
 				// Date
 				String fullDate = dateString + " " + timeString;
@@ -138,7 +137,10 @@ public class AddToDoActivity extends Activity {
 				ToDoItem.packageIntent(data, titleString, priority, status, fullDate);
 
 				//TODO - return data Intent and finish
-				startActivity(data);
+				Intent intent = new Intent(AddToDoActivity.this,ToDoManagerActivity.class);
+				intent.putExtras(data);
+				startActivityForResult(intent, 0);
+				finish();
 				
 			}
 		});
