@@ -106,6 +106,12 @@ public class ToDoListAdapter extends BaseAdapter {
 		
 		// TODO - Set up Status CheckBox
 		final CheckBox statusView = (CheckBox)itemLayout.findViewById(R.id.statusCheckBox);
+		String status = toDoItem.getStatus().toString();
+		if( status == "DONE") {
+				statusView.setChecked(true);
+		} else {
+			statusView.setChecked(false);
+		}
 		
 		statusView.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -115,7 +121,12 @@ public class ToDoListAdapter extends BaseAdapter {
 				
 				// TODO - Set up and implement an OnCheckedChangeListener, which 
 				// is called when the user toggles the status checkbox
-				buttonView.setActivated(isChecked);
+				buttonView.setChecked(isChecked);
+				if( isChecked){
+					 toDoItem.setStatus(ToDoItem.Status.DONE);
+				} else {
+					toDoItem.setStatus(ToDoItem.Status.NOTDONE);
+				}
 				
 			}
 		});
