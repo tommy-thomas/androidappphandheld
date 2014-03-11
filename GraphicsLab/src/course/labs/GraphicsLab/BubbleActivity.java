@@ -237,7 +237,7 @@ public class BubbleActivity extends Activity {
 				int min = -3;
 				int max = 3;
 				// TODO - set rotation in range [1..3]
-				mDRotate = r.nextInt(max - min + 1) + min;
+				mDRotate = r.nextInt( max - min + 1) - min;
 
 			} else {
 			
@@ -316,8 +316,20 @@ public class BubbleActivity extends Activity {
 					// Each time this method is run the BubbleView should
 					// move one step. If the BubbleView exits the display, 
 					// stop the BubbleView's Worker Thread. 
-					// Otherwise, request that the BubbleView be redrawn. 
+					// Otherwise, request that the BubbleView be redrawn.
+					if (moveWhileOnScreen()) {
+						//BubbleView.this.postInvalidate();
+						stop(false);
 						
+						
+					} else if ( isOutOfView()){
+						//mFrame.removeView(BubbleView.this);
+						//BubbleView.this.stop(false);
+						 postInvalidate();
+						mMoverFuture.isDone();
+						
+					}
+
 					
 					
 				}
@@ -368,9 +380,8 @@ public class BubbleActivity extends Activity {
 			log("velocity X:" + velocityX + " velocity Y:" + velocityY);
 
 			//TODO - set mDx and mDy to be the new velocities divided by the REFRESH_RATE
-			
-			mDx = 0;
-			mDy = 0;
+			mDx = velocityX/REFRESH_RATE;
+			mDy = velocityY/REFRESH_RATE;
 
 		}
 
@@ -379,22 +390,20 @@ public class BubbleActivity extends Activity {
 		protected synchronized void onDraw(Canvas canvas) {
 
 			// TODO - save the canvas
-
+			canvas.save();
 
 			// TODO - increase the rotation of the original image by mDRotate
+			mDRotate += mDRotate;
 
-
-			
 			// TODO Rotate the canvas by current rotation
-
+			canvas.rotate(mDRotate , mXPos , mScaledBitmapWidth/2 + mYPos + mScaledBitmapWidth/2 );
 			
 			
 			// TODO - draw the bitmap at it's new location
-			
-
+			canvas.drawBitmap(mScaledBitmap , mXPos , mYPos , mPainter );
 			
 			// TODO - restore the canvas
-
+			canvas.restore();
 
 			
 		}
@@ -404,16 +413,20 @@ public class BubbleActivity extends Activity {
 
 			// TODO - Move the BubbleView
 			// Returns true if the BubbleView has exited the screen
-
-
-			
-			
+			mXPos += mDx;
+			mYPos += mDy;
+			/*if (mXPos < 0 -  mScaledBitmapWidth
+					|| mXPos > mDisplayHeight +  mScaledBitmapWidth
+					|| mYPos < 0 -  mScaledBitmapWidth
+					|| mYPos > mDisplayWidth +  mScaledBitmapWidth) {
+				return false;
+			} else {
+				return true;
+			}*/
 			return false;
-
 		}
 
 		private boolean isOutOfView() {
-
 			// TODO - Return true if the BubbleView has exited the screen
 
 			return false;
