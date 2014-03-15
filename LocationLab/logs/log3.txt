@@ -1,0 +1,21 @@
+03-15 05:03:19.246: E/AndroidRuntime(5896): FATAL EXCEPTION: main
+03-15 05:03:19.246: E/AndroidRuntime(5896): java.lang.RuntimeException: Unable to resume activity {course.labs.locationlab/course.labs.locationlab.PlaceViewActivity}: java.lang.NullPointerException
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.performResumeActivity(ActivityThread.java:2790)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:2819)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2266)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.access$600(ActivityThread.java:141)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1256)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.os.Looper.loop(Looper.java:137)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at dalvik.system.NativeStart.main(Native Method)
+03-15 05:03:19.246: E/AndroidRuntime(5896): Caused by: java.lang.NullPointerException
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at course.labs.locationlab.PlaceViewActivity.onResume(PlaceViewActivity.java:117)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.Instrumentation.callActivityOnResume(Instrumentation.java:1192)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.Activity.performResume(Activity.java:5211)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	at android.app.ActivityThread.performResumeActivity(ActivityThread.java:2780)
+03-15 05:03:19.246: E/AndroidRuntime(5896): 	... 12 more

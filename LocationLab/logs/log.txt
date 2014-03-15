@@ -1,0 +1,28 @@
+03-14 19:48:03.629: D/AndroidRuntime(2062): Shutting down VM
+03-14 19:48:03.629: W/dalvikvm(2062): threadid=1: thread exiting with uncaught exception (group=0xa4bd1648)
+03-14 19:48:03.633: E/AndroidRuntime(2062): FATAL EXCEPTION: main
+03-14 19:48:03.633: E/AndroidRuntime(2062): java.lang.RuntimeException: Unable to start activity ComponentInfo{course.labs.locationlab/course.labs.locationlab.PlaceViewActivity}: java.lang.IllegalArgumentException: Provider "LocLab" already exists
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2261)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread.access$600(ActivityThread.java:141)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1256)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.os.Looper.loop(Looper.java:137)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at dalvik.system.NativeStart.main(Native Method)
+03-14 19:48:03.633: E/AndroidRuntime(2062): Caused by: java.lang.IllegalArgumentException: Provider "LocLab" already exists
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.os.Parcel.readException(Parcel.java:1435)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.os.Parcel.readException(Parcel.java:1385)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.location.ILocationManager$Stub$Proxy.addTestProvider(ILocationManager.java:944)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.location.LocationManager.addTestProvider(LocationManager.java:1176)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at course.labs.locationlab.MockLocationProvider.<init>(MockLocationProvider.java:23)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at course.labs.locationlab.PlaceViewActivity.onCreate(PlaceViewActivity.java:51)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.Activity.performCreate(Activity.java:5133)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1087)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2175)
+03-14 19:48:03.633: E/AndroidRuntime(2062): 	... 11 more
+03-14 19:48:05.873: I/Process(2062): Sending signal. PID: 2062 SIG: 9
