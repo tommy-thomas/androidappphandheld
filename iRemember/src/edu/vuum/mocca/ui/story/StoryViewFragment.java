@@ -260,6 +260,8 @@ public class StoryViewFragment extends Fragment {
 			// and the video view already set up in the layout file.
 
 			// TODO - Create a new MediaController for this activity
+			final MediaController mMediaController = new MediaController(
+					getActivity(), true);
 
 			// TODO - The MediaController needs an anchorview. Anchor the Media
 			// Controller
