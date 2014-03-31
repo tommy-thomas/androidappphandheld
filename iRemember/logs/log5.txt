@@ -1,0 +1,22 @@
+03-31 02:12:26.594: E/AndroidRuntime(10865): FATAL EXCEPTION: main
+03-31 02:12:26.594: E/AndroidRuntime(10865): java.lang.RuntimeException: Failure delivering result ResultInfo{who=null, request=1, result=-1, data=Intent { act=inline-data (has extras) }} to activity {edu.vanderbilt.mooc/edu.vuum.mocca.ui.story.CreateStoryActivity}: java.lang.NullPointerException
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread.deliverResults(ActivityThread.java:3367)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread.handleSendResult(ActivityThread.java:3410)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread.access$1100(ActivityThread.java:141)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1304)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.os.Looper.loop(Looper.java:137)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at dalvik.system.NativeStart.main(Native Method)
+03-31 02:12:26.594: E/AndroidRuntime(10865): Caused by: java.lang.NullPointerException
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at edu.vuum.mocca.ui.story.CreateStoryFragment.onActivityResult(CreateStoryFragment.java:317)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at edu.vuum.mocca.ui.story.StoryActivityBase.onActivityResult(StoryActivityBase.java:291)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.Activity.dispatchActivityResult(Activity.java:5322)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	at android.app.ActivityThread.deliverResults(ActivityThread.java:3363)
+03-31 02:12:26.594: E/AndroidRuntime(10865): 	... 11 more
+03-31 02:12:31.370: E/OpenGLRenderer(10929): Getting MAX_TEXTURE_SIZE from GradienCache
+03-31 02:12:31.418: E/OpenGLRenderer(10929): Getting MAX_TEXTURE_SIZE from Caches::initConstraints()
