@@ -17,7 +17,7 @@
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	at java.lang.reflect.Method.invoke(Method.java:525)
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.view.View$1.onClick(View.java:3628)
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	... 11 more
-03-30 23:47:12.998: E/AndroidRuntime(2869): Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity classCaused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {edu.vanderbilt.mooc/android.provider.MediaStore}; have you declared this activity in your AndroidManifest.xml?
+03-30 23:47:12.998: E/AndroidRuntime(2869): Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {edu.vanderbilt.mooc/android.provider.MediaStore}; have you declared this activity in your AndroidManifest.xml?
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:1628)
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Instrumentation.execStartActivity(Instrumentation.java:1424)
 03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Activity.startActivityForResult(Activity.java:3390)

@@ -275,13 +275,12 @@ public class CreateStoryActivity extends StoryActivityBase {
 			// function
 			// getOutputMediaFile to create a new filename for this specific
 			// image;
-			File imageFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+			fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 
 			// TODO - Add the filename to the Intent as an extra. Use the
 			// Intent-extra name
 			// from the MediaStore class, EXTRA_OUTPUT
-			imageIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-					imageFile.toString());
+			imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, fragment.imagePath);
 
 			// TODO - Start a new activity for result, using the new intent and
 			// the
@@ -307,14 +306,16 @@ public class CreateStoryActivity extends StoryActivityBase {
 			// TODO - Set the fileUri for this video file using the pre-made
 			// function
 			// getOutputMediaFile to create a new filename for this specific video;
-			File videoFile = getOutputMediaFile(MEDIA_TYPE_VIDEO);
+			//File videoFile = getOutputMediaFile(MEDIA_TYPE_VIDEO);
+			fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 
 			// TODO - Add the filename to the Intent as an extra. Use the
 			// Intent-extra name
 			// from the MediaStore class, EXTRA_OUTPUT
-			videoIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-					videoFile.toString());
-
+			// videoIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+			//	videoFile.toString());
+			videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, fragment.imagePath);
+			
 			// TODO - Specify as an extra that the video quality should be HIGH. Use
 			// the
 			// Intent-extra name, EXTRA_VIDEO_QUALITY, from the MediaStore class
