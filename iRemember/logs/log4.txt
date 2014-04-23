@@ -1,0 +1,30 @@
+03-30 23:47:12.998: E/AndroidRuntime(2869): FATAL EXCEPTION: main
+03-30 23:47:12.998: E/AndroidRuntime(2869): java.lang.IllegalStateException: Could not execute method of the activity
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.view.View$1.onClick(View.java:3633)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.view.View.performClick(View.java:4240)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.view.View$PerformClick.run(View.java:17721)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.os.Handler.handleCallback(Handler.java:730)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.os.Looper.loop(Looper.java:137)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at dalvik.system.NativeStart.main(Native Method)
+03-30 23:47:12.998: E/AndroidRuntime(2869): Caused by: java.lang.reflect.InvocationTargetException
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.view.View$1.onClick(View.java:3628)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	... 11 more
+03-30 23:47:12.998: E/AndroidRuntime(2869): Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity classCaused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {edu.vanderbilt.mooc/android.provider.MediaStore}; have you declared this activity in your AndroidManifest.xml?
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:1628)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Instrumentation.execStartActivity(Instrumentation.java:1424)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Activity.startActivityForResult(Activity.java:3390)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.app.Activity.startActivityForResult(Activity.java:3351)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at android.support.v4.app.FragmentActivity.startActivityForResult(FragmentActivity.java:824)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at edu.vuum.mocca.ui.story.CreateStoryActivity.launchCameraIntent(CreateStoryActivity.java:291)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	at edu.vuum.mocca.ui.story.CreateStoryActivity.addPhotoClicked(CreateStoryActivity.java:121)
+03-30 23:47:12.998: E/AndroidRuntime(2869): 	... 14 more
+03-30 23:47:18.794: E/OpenGLRenderer(2974): Getting MAX_TEXTURE_SIZE from GradienCache
+03-30 23:47:18.834: E/OpenGLRenderer(2974): Getting MAX_TEXTURE_SIZE from Caches::initConstraints()

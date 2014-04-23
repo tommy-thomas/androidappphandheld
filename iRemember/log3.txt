@@ -1,0 +1,28 @@
+03-30 14:16:12.959: E/AndroidRuntime(5988): FATAL EXCEPTION: main
+03-30 14:16:12.959: E/AndroidRuntime(5988): java.lang.IllegalStateException: Could not execute method of the activity
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.view.View$1.onClick(View.java:3633)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.view.View.performClick(View.java:4240)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.view.View$PerformClick.run(View.java:17721)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.os.Handler.handleCallback(Handler.java:730)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.os.Looper.loop(Looper.java:137)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at dalvik.system.NativeStart.main(Native Method)
+03-30 14:16:12.959: E/AndroidRuntime(5988): Caused by: java.lang.reflect.InvocationTargetException
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.view.View$1.onClick(View.java:3628)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	... 11 more
+03-30 14:16:12.959: E/AndroidRuntime(5988): Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {edu.vanderbilt.mooc/android.provider.MediaStore}; have you declared this activity in your AndroidManifest.xml?
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:1628)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.app.Instrumentation.execStartActivity(Instrumentation.java:1424)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.app.Activity.startActivityForResult(Activity.java:3390)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.app.Activity.startActivityForResult(Activity.java:3351)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at android.support.v4.app.FragmentActivity.startActivityForResult(FragmentActivity.java:824)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at edu.vuum.mocca.ui.story.CreateStoryActivity.launchCameraIntent(CreateStoryActivity.java:291)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	at edu.vuum.mocca.ui.story.CreateStoryActivity.addPhotoClicked(CreateStoryActivity.java:121)
+03-30 14:16:12.959: E/AndroidRuntime(5988): 	... 14 more

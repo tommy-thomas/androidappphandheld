@@ -1,0 +1,24 @@
+03-30 13:48:05.627: E/AndroidRuntime(3872): FATAL EXCEPTION: main
+03-30 13:48:05.627: E/AndroidRuntime(3872): java.lang.RuntimeException: Unable to start activity ComponentInfo{edu.vanderbilt.mooc/edu.vuum.mocca.ui.story.SoundRecordActivity}: java.lang.NullPointerException: println needs a message
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2211)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2261)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread.access$600(ActivityThread.java:141)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1256)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.os.Looper.loop(Looper.java:137)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread.main(ActivityThread.java:5103)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at java.lang.reflect.Method.invokeNative(Native Method)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at java.lang.reflect.Method.invoke(Method.java:525)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:737)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:553)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at dalvik.system.NativeStart.main(Native Method)
+03-30 13:48:05.627: E/AndroidRuntime(3872): Caused by: java.lang.NullPointerException: println needs a message
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.util.Log.println_native(Native Method)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.util.Log.i(Log.java:159)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at edu.vuum.mocca.ui.story.SoundRecordActivity.onCreate(SoundRecordActivity.java:215)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.Activity.performCreate(Activity.java:5133)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1087)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2175)
+03-30 13:48:05.627: E/AndroidRuntime(3872): 	... 11 more
+03-30 13:48:10.619: E/OpenGLRenderer(4306): Getting MAX_TEXTURE_SIZE from GradienCache
+03-30 13:48:10.671: E/OpenGLRenderer(4306): Getting MAX_TEXTURE_SIZE from Caches::initConstraints()

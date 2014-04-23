@@ -61,6 +61,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.app.DialogFragment;
 import android.util.Log;
 import android.view.View;
@@ -120,11 +121,11 @@ public class CreateStoryActivity extends StoryActivityBase {
 		launchCameraIntent();
 	}
 
-	public void getDateClicked(View aView){
-	    DialogFragment newFragment = new DatePickerFragment();
-	    newFragment.show(getFragmentManager(), "datePicker");
+	public void getDateClicked(View aView) {
+		DialogFragment newFragment = new DatePickerFragment();
+		newFragment.show(getFragmentManager(), "datePicker");
 	}
-	
+
 	public void getLocationClicked(View aView) {
 		// Acquire a reference to the system Location Manager
 		final LocationManager locationManager = (LocationManager) this
@@ -191,9 +192,7 @@ public class CreateStoryActivity extends StoryActivityBase {
 
 		// For future implementation: store videos in a separate directory
 		File mediaStorageDir = new File(
-				Environment
-						.getExternalStorageDirectory(),
-				"iRemember");
+				Environment.getExternalStorageDirectory(), "iRemember");
 		// This location works best if you want the created images to be shared
 		// between applications and persist after your app has been uninstalled.
 
@@ -225,78 +224,110 @@ public class CreateStoryActivity extends StoryActivityBase {
 
 		return mediaFile;
 	}
-	
-	// This function creates a new Intent to launch the Audio Recording Activity
-	
-	private void launchSoundIntent() {
-		
-		// TODO - Create a new intent to launch the SoundRecordActivity activity
 
-		
-		// TODO - Use getOutputMediaFile() to create a new 
-		// filename for this specific sound file
-		
-		
-		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
-		// from the SoundRecordActivity class, EXTRA_OUTPUT
-
-		
-		// TODO - Start a new activity for result, using the new intent and the request
-		// code MIC_SOUND_REQUEST
-		
+	public static boolean isSDCardPresent() {
+		return android.os.Environment.getExternalStorageState().equals(
+				android.os.Environment.MEDIA_MOUNTED);
 	}
-	
+
+	// This function creates a new Intent to launch the Audio Recording Activity
+
+	private void launchSoundIntent() {
+
+		if (CreateStoryActivity.isSDCardPresent()) {
+			// TODO - Create a new intent to launch the SoundRecordActivity
+			// activity
+			Intent soundIntent = new Intent(CreateStoryActivity.this,
+					SoundRecordActivity.class);
+
+			// TODO - Use getOutputMediaFile() to create a new
+			// filename for this specific sound file
+			File audioFile = getOutputMediaFile(MEDIA_TYPE_AUDIO);
+
+			// TODO - Add the filename to the Intent as an extra. Use the
+			// Intent-extra name
+			// from the SoundRecordActivity class, EXTRA_OUTPUT
+			soundIntent.putExtra(SoundRecordActivity.EXTRA_OUTPUT,
+					audioFile.toString());
+
+			// TODO - Start a new activity for result, using the new intent and
+			// the request
+			// code MIC_SOUND_REQUEST
+			startActivityForResult(soundIntent, MIC_SOUND_REQUEST);
+		}
+
+	}
+
 	// This function creates a new Intent to launch the built-in Camera activity
 
 	private void launchCameraIntent() {
-		
-		// TODO - Create a new intent to launch the MediaStore, Image capture function
-		// Hint: use standard Intent from MediaStore class
-		// See: http://developer.android.com/reference/android/provider/MediaStore.html
 
-		
-		// TODO - Set the imagePath for this image file using the pre-made function
-		// getOutputMediaFile to create a new filename for this specific image;
+		if (CreateStoryActivity.isSDCardPresent()) {
+			// TODO - Create a new intent to launch the MediaStore, Image
+			// capture
+			// function
+			// Hint: use standard Intent from MediaStore class
+			// See:
+			// http://developer.android.com/reference/android/provider/MediaStore.html
+			Intent imageIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-		
-		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
-		// from the MediaStore class, EXTRA_OUTPUT
-		
-		
-		// TODO - Start a new activity for result, using the new intent and the request
-		// code CAMERA_PIC_REQUEST
-		
+			// TODO - Set the imagePath for this image file using the pre-made
+			// function
+			// getOutputMediaFile to create a new filename for this specific
+			// image;
+			fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+
+			// TODO - Add the filename to the Intent as an extra. Use the
+			// Intent-extra name
+			// from the MediaStore class, EXTRA_OUTPUT
+			imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, fragment.imagePath);
+
+			// TODO - Start a new activity for result, using the new intent and
+			// the
+			// request
+			// code CAMERA_PIC_REQUEST
+			startActivityForResult(imageIntent, CAMERA_PIC_REQUEST);
+		}
 
 	}
 
-	// This function creates a new Intent to launch the built-in Video Camera activity
-	
+	// This function creates a new Intent to launch the built-in Video Camera
+	// activity
+
 	private void launchVideoCameraIntent() {
-		// TODO - Create a new intent to launch the MediaStore, Image capture function
-		// Hint: use standard Intent from MediaStore class
-		// See: http://developer.android.com/reference/android/provider/MediaStore.html
+		if (CreateStoryActivity.isSDCardPresent()) {
+			// TODO - Create a new intent to launch the MediaStore, Image capture
+			// function
+			// Hint: use standard Intent from MediaStore class
+			// See:
+			// http://developer.android.com/reference/android/provider/MediaStore.html
+			Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
 
-		
-		// TODO - Set the fileUri for this video file using the pre-made function
-		// getOutputMediaFile to create a new filename for this specific video;
-		
+			// TODO - Set the fileUri for this video file using the pre-made
+			// function
+			// getOutputMediaFile to create a new filename for this specific video;
+			//File videoFile = getOutputMediaFile(MEDIA_TYPE_VIDEO);
+			fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 
-		
-		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
-		// from the MediaStore class, EXTRA_OUTPUT
+			// TODO - Add the filename to the Intent as an extra. Use the
+			// Intent-extra name
+			// from the MediaStore class, EXTRA_OUTPUT
+			// videoIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+			//	videoFile.toString());
+			videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, fragment.imagePath);
+			
+			// TODO - Specify as an extra that the video quality should be HIGH. Use
+			// the
+			// Intent-extra name, EXTRA_VIDEO_QUALITY, from the MediaStore class
+			// set the video image quality to high
+			 videoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1); // set the video image quality to high
 
-		
-		// TODO - Specify as an extra that the video quality should be HIGH. Use the
-		// Intent-extra name, EXTRA_VIDEO_QUALITY, from the MediaStore class
-		// set the video image quality to high 
-		
+			// TODO - Start a new activity for result, using the new intent and the
+			// request
+			// code CAMERA_VIDEO_REQUEST
+			 startActivityForResult(videoIntent, CAMERA_VIDEO_REQUEST);	
+		}
 
-		
-		// TODO - Start a new activity for result, using the new intent and the request
-		// code CAMERA_VIDEO_REQUEST
-		
-
-	
 	}
 
 }
